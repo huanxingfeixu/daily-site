@@ -1,1 +1,125 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 每日技巧 — 写给产品经理的实用小贴士</title>
+<meta name="description" content="每天一条可立即上手的 Claude 使用技巧，覆盖提示词、Cowork 功能、文档生成与自动化，专为产品经理日常工作打造。">
+<meta name="theme-color" content="#d97757">
+<!-- Open Graph / 社交分享 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Claude 每日技巧">
+<meta property="og:description" content="每天一条可立即上手的 Claude 使用技巧，专为产品经理打造。">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{
+    --bg:#faf9f5; --surface:#ffffff; --ink:#1f1e1d; --muted:#7d7a72;
+    --line:#ebe8df; --accent:#d97757; --accent-soft:#f3e3da; --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#1a1917; --surface:#23211e; --ink:#f0eee8; --muted:#a09c92;
+      --line:#332f2a; --accent:#e08a6c; --accent-soft:#3a2c25; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35); }
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  /* Hero */
+  header{padding:80px 0 40px;text-align:center;}
+  .badge{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
+    color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 14px;letter-spacing:.3px;}
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+  h1{font-size:38px;line-height:1.2;margin:22px 0 12px;letter-spacing:-.5px;font-weight:700;}
+  .lede{font-size:16.5px;color:var(--muted);max-width:480px;margin:0 auto;}
+
+  /* List */
+  main{padding:24px 0 8px;}
+  .meta{display:flex;justify-content:space-between;align-items:baseline;
+    font-size:13px;color:var(--muted);padding:0 4px 14px;border-bottom:1px solid var(--line);margin-bottom:20px;}
+  .grid{display:grid;gap:14px;}
+  .item{display:block;text-decoration:none;color:inherit;background:var(--surface);
+    border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);
+    transition:transform .18s ease,border-color .18s ease;}
+  .item:hover{transform:translateY(-2px);border-color:var(--accent);}
+  .item:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  .item .top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .item .d{font-size:12px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;
+    background:var(--accent-soft);border-radius:6px;padding:3px 8px;}
+  .item .cat{font-size:12px;color:var(--muted);}
+  .item h2{font-size:18px;margin:0 0 6px;line-height:1.4;font-weight:600;}
+  .item p{font-size:14px;color:var(--muted);margin:0;}
+  .item .more{font-size:13px;color:var(--accent);font-weight:600;margin-top:12px;display:inline-block;}
+
+  /* Footer */
+  footer{text-align:center;padding:48px 0 64px;color:var(--muted);font-size:13px;}
+  footer a{color:var(--accent);text-decoration:none;}
+
+  @media (max-width:480px){
+    header{padding:56px 0 28px;}
+    h1{font-size:30px;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="badge"><span class="dot"></span>每天下午 1 点更新</span>
+      <h1>Claude 每日技巧</h1>
+      <p class="lede">每天一条可立即上手的小贴士，覆盖提示词、Cowork 功能、文档生成与自动化，写给把 Claude 用在日常工作里的产品经理。</p>
+    </header>
+
+    <main>
+      <div class="meta">
+        <span>最新在前</span>
+        <span id="count">共 5 条</span>
+      </div>
+      <div class="grid">
+
+        <a class="item" href="claude-tip-2026-06-12.html">
+          <div class="top"><span class="d">06-12 周五</span><span class="cat">Cowork 功能</span></div>
+          <h2>用「/schedule」定时任务，让竞品监控每周一自动送上门</h2>
+          <p>把竞品监控写成一条 /schedule 指令，每周一自动生成带来源链接的动态简报。</p>
+          <span class="more">阅读全文 →</span>
+        </a>
+
+        <a class="item" href="claude-tip-2026-06-11.html">
+          <div class="top"><span class="d">06-11 周四</span><span class="cat">文档生成</span></div>
+          <h2>让 Claude 生成「带公式、能用」的 Excel</h2>
+          <p>说清「用公式别写死」，就能拿到改一个数全表联动的 .xlsx，做 RICE 优先级、需求评分都顺手。</p>
+          <span class="more">阅读全文 →</span>
+        </a>
+
+        <a class="item" href="claude-tip-2026-06-10.html">
+          <div class="top"><span class="d">06-10 周三</span><span class="cat">提示词技巧</span></div>
+          <h2>用 XML 标签把提示词拆成「积木」</h2>
+          <p>把背景、要求、示例分别用标签包起来，Claude 解析更准，输出更稳、更贴合格式。</p>
+          <span class="more">阅读全文 →</span>
+        </a>
+
+        <a class="item" href="claude-tip-2026-06-09.html">
+          <div class="top"><span class="d">06-09 周二</span><span class="cat">Cowork 功能</span></div>
+          <h2>把一次性回答变成「实时 Artifact 看板」</h2>
+          <p>让 Claude 把反复查看、随时间变化的数据固化成一个独立页面，每次打开自动拉取最新进度，刷新不耗 token。</p>
+          <span class="more">阅读全文 →</span>
+        </a>
+
+        <a class="item" href="claude-tip-2026-06-08.html">
+          <div class="top"><span class="d">06-08 周一</span><span class="cat">Cowork 功能</span></div>
+          <h2>用 Skills 把"写 PRD"变成一键流程</h2>
+          <p>调用 write-spec 技能，从一句话需求生成结构化 PRD，自动补齐目标、非目标、成功指标与验收标准。</p>
+          <span class="more">阅读全文 →</span>
+        </a>
+
+      </div>
+    </main>
+
+    <footer>
+      由定时任务 <strong>daily-claude-tip</strong> 自动维护 · 基于 Claude 生成
+    </footer>
+  </div>
+</body>
+</html>

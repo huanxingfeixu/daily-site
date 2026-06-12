@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 每日技巧 · 2026-06-10</title>
+<style>
+  body{margin:0;background:#f5f4f0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#2b2b29;line-height:1.7;}
+  .card{max-width:560px;margin:48px auto;background:#fff;border-radius:14px;padding:36px 40px;box-shadow:0 2px 20px rgba(0,0,0,.06);}
+  .date{font-size:13px;letter-spacing:.5px;color:#b0612e;font-weight:600;text-transform:uppercase;}
+  h1{font-size:22px;margin:8px 0 18px;line-height:1.35;}
+  p{font-size:15px;margin:0 0 16px;}
+  code{background:#efece6;border-radius:4px;padding:1px 5px;font-family:"SF Mono",Consolas,monospace;font-size:13px;}
+  .code{background:#2b2b29;color:#f3f1ec;border-radius:10px;padding:16px 18px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.6;position:relative;white-space:pre-wrap;}
+  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:#8a8a82;letter-spacing:.5px;}
+  .tip{font-size:13px;color:#6b6b63;margin-top:18px;}
+  .tip a{color:#b0612e;text-decoration:none;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="date">2026 年 6 月 10 日 · 周三</div>
+    <h1>用 XML 标签把提示词拆成「积木」，输出更稳更准</h1>
+    <p>当一条提示同时塞了背景、要求和示例时，Claude 容易把它们混在一起。官方建议用 <strong>XML 标签</strong>把每一块包起来——<code>&lt;context&gt;</code> 放背景、<code>&lt;instructions&gt;</code> 放要求、<code>&lt;example&gt;</code> 放范例。Claude 解析时一眼就能分清谁是谁，输出明显更稳、更贴合你要的格式。</p>
+    <p>对 PM 尤其好用：写 PRD、整理调研、生成竞品表时，把「参考资料」和「你要做什么」分开标注，就不会出现 Claude 把示例当正文照抄的情况。</p>
+    <div class="code"><span class="tag">复制即用</span>&lt;context&gt;
+我们做一款面向中小私募的 AI 投研工具，下面是 3 条用户访谈摘录……
+&lt;/context&gt;
+
+&lt;instructions&gt;
+读完 context，提炼 3 个最高频痛点，每个配一句原话佐证，输出为表格。
+&lt;/instructions&gt;
+
+&lt;example&gt;
+痛点 | 佐证原话
+盯盘耗时 | 「每天开盘前要手动翻 20 只票」
+&lt;/example&gt;</div>
+    <p class="tip">小诀窍：标签名自己起、保持前后一致即可，没有固定写法；多个范例用 <code>&lt;examples&gt;</code> 包住，配 3–5 个效果最好。参考 <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags">Anthropic 官方提示词文档</a>。</p>
+  </div>
+</body>
+</html>

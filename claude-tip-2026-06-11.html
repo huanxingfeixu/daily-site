@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 每日技巧 · 2026-06-11</title>
+<style>
+  body{margin:0;background:#f5f4f0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#2b2b29;line-height:1.7;}
+  .card{max-width:560px;margin:48px auto;background:#fff;border-radius:14px;padding:36px 40px;box-shadow:0 2px 20px rgba(0,0,0,.06);}
+  .date{font-size:13px;letter-spacing:.5px;color:#b0612e;font-weight:600;text-transform:uppercase;}
+  h1{font-size:22px;margin:8px 0 18px;line-height:1.35;}
+  p{font-size:15px;margin:0 0 16px;}
+  code{background:#efece6;border-radius:4px;padding:1px 5px;font-family:"SF Mono",Consolas,monospace;font-size:13px;}
+  .code{background:#2b2b29;color:#f3f1ec;border-radius:10px;padding:16px 18px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.6;position:relative;white-space:pre-wrap;}
+  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:#8a8a82;letter-spacing:.5px;}
+  .tip{font-size:13px;color:#6b6b63;margin-top:18px;}
+  .tip a{color:#b0612e;text-decoration:none;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="date">2026 年 6 月 11 日 · 周四</div>
+    <h1>让 Claude 直接生成「带公式、能用」的 Excel，而不是死表格</h1>
+    <p>很多人让 Claude 出 Excel 时只拿到一张静态数据表。其实在 Cowork 里，Claude 会自动调用文档技能，生成<strong>带真实公式、条件格式、甚至图表和多 Sheet</strong> 的 <code>.xlsx</code>——下载就能直接编辑，改一个数全表联动。</p>
+    <p>对 PM 很省事：算 RICE 优先级、做需求评分、拆季度指标时，把「要哪些列、怎么算、怎么排序」一次说清，让公式留在表里，后面你自己微调权重立刻看到新排名。</p>
+    <div class="code"><span class="tag">复制即用</span>帮我生成一个需求优先级 Excel（.xlsx）：
+列：需求名 / Reach / Impact / Confidence / Effort / RICE 分数
+- RICE 分数列用公式 =Reach*Impact*Confidence/Effort，别写死数字
+- 按 RICE 分数降序排序，分数列加色阶条件格式
+- 顶部冻结表头
+先放 5 行示例数据，方便我替换。</div>
+    <p class="tip">要点：明确说「用公式，别写死」，Claude 才会保留可计算单元格；同理可让它做带 VLOOKUP 的对照表或多 Sheet 的指标看板。参考 <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude">Claude 文件创建说明</a>。</p>
+  </div>
+</body>
+</html>
