@@ -4,25 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude 每日技巧 · 2026-06-08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #faf9f5; color: #1f1e1d; max-width: 640px; margin: 0 auto; padding: 48px 24px; line-height: 1.8; }
-  .date { color: #8a8780; font-size: 13px; letter-spacing: 1px; }
-  h1 { font-size: 22px; margin: 8px 0 16px; }
-  p { margin: 0 0 16px; font-size: 15px; }
-  .example { background: #f0eee6; border-left: 3px solid #d97757; border-radius: 6px; padding: 16px 20px; font-size: 14px; font-family: "SF Mono", Menlo, Consolas, monospace; }
-  .example .label { color: #d97757; font-weight: 600; font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 8px; font-family: -apple-system, sans-serif; }
-  .hint { font-size: 13px; color: #8a8780; }
+  :root{
+    --ink:#141413; --paper:#faf9f5; --muted:#b0aea5; --line:#e8e6dc; --accent:#d97757;
+    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
+    --serif:'Lora',Georgia,'PingFang SC',serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+  .card{max-width:600px;margin:48px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 44px;}
+  .date{font-family:var(--sans);font-size:13px;letter-spacing:.3px;color:var(--muted);font-weight:500;}
+  .cat{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);background:var(--line);border-radius:6px;padding:3px 9px;margin:10px 0 0;}
+  h1{font-family:var(--sans);font-size:24px;margin:14px 0 20px;line-height:1.35;font-weight:600;color:var(--ink);letter-spacing:-.3px;}
+  p{font-size:15.5px;margin:0 0 16px;color:var(--ink);}
+  strong{font-weight:600;}
+  .example{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px 20px;font-size:13.5px;line-height:1.65;font-family:"SF Mono",Consolas,monospace;margin:0 0 16px;}
+  .example .label{color:var(--accent);font-weight:500;font-size:11px;letter-spacing:.5px;display:block;margin-bottom:10px;font-family:var(--sans);}
+  .hint{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7;}
 </style>
 </head>
 <body>
-  <div class="date">2026-06-08 · CLAUDE 每日技巧</div>
-  <h1>用 Skills 把"写 PRD"变成一键流程</h1>
-  <p>Cowork 的 Skills 是可复用的任务说明书，把你的专业流程固化下来、相关时自动加载。在侧边栏输入 <strong>/</strong> 就能看到全部技能并选用，或直接用自然语言描述任务，Claude 会自动判断该用哪个。</p>
-  <p>你已装有 product-management 插件。想从一句话需求生成结构化 PRD，调用 write-spec 技能即可，它会自动补齐目标、非目标、成功指标和验收标准，比从空白文档起步快得多。</p>
-  <div class="example">
-    <span class="label">可直接复制的示例</span>
-    /write-spec 把"用户希望批量导出报表"写成 PRD，包含问题背景、目标与非目标、用户故事、成功指标和验收标准，并分 P0/P1 标注优先级
+  <div class="card">
+    <div class="date">2026-06-08 · CLAUDE 每日技巧</div>
+    <span class="cat">Cowork 功能</span>
+    <h1>用 Skills 把"写 PRD"变成一键流程</h1>
+    <p>Cowork 的 Skills 是可复用的任务说明书，把你的专业流程固化下来、相关时自动加载。在侧边栏输入 <strong>/</strong> 就能看到全部技能并选用，或直接用自然语言描述任务，Claude 会自动判断该用哪个。</p>
+    <p>你已装有 product-management 插件。想从一句话需求生成结构化 PRD，调用 write-spec 技能即可，它会自动补齐目标、非目标、成功指标和验收标准，比从空白文档起步快得多。</p>
+    <div class="example">
+      <span class="label">可直接复制的示例</span>
+      /write-spec 把"用户希望批量导出报表"写成 PRD，包含问题背景、目标与非目标、用户故事、成功指标和验收标准，并分 P0/P1 标注优先级
+    </div>
+    <p class="hint">想固化自己的流程？在 Customize &gt; Skills 用 Skill Creator 创建专属技能，可随时开关、也能分享给团队。</p>
   </div>
-  <p class="hint">想固化自己的流程？在 Customize &gt; Skills 用 Skill Creator 创建专属技能，可随时开关、也能分享给团队。</p>
 </body>
 </html>

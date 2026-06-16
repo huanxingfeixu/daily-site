@@ -12,54 +12,76 @@
 <meta property="og:description" content="每天一条可立即上手的 Claude 使用技巧，专为产品经理打造。">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
+<!-- 字体：Poppins（标题）+ Lora（正文），唯一外部资源 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#faf9f5; --surface:#ffffff; --ink:#1f1e1d; --muted:#7d7a72;
-    --line:#ebe8df; --accent:#d97757; --accent-soft:#f3e3da; --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
-  }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#1a1917; --surface:#23211e; --ink:#f0eee8; --muted:#a09c92;
-      --line:#332f2a; --accent:#e08a6c; --accent-soft:#3a2c25; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35); }
+    --ink:#141413;      /* 正文、深色背景 */
+    --paper:#faf9f5;    /* 页面背景、深底上的文字 */
+    --muted:#b0aea5;    /* 次要文字：日期、计数 */
+    --line:#e8e6dc;     /* 分隔线、subtle 背景、卡片描边 */
+    --accent:#d97757;   /* 唯一主强调色 */
+    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
+    --serif:'Lora',Georgia,'PingFang SC',serif;
   }
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
-  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
-    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
-    -webkit-font-smoothing:antialiased;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.75;
+    font-family:var(--serif);-webkit-font-smoothing:antialiased;}
   .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
 
   /* Hero */
-  header{padding:80px 0 40px;text-align:center;}
+  header{padding:80px 0 32px;text-align:center;}
   .badge{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
-    color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 14px;letter-spacing:.3px;}
+    font-family:var(--sans);color:var(--ink);background:transparent;border:1px solid var(--line);
+    border-radius:999px;padding:6px 14px;letter-spacing:.3px;}
   .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
-  h1{font-size:38px;line-height:1.2;margin:22px 0 12px;letter-spacing:-.5px;font-weight:700;}
-  .lede{font-size:16.5px;color:var(--muted);max-width:480px;margin:0 auto;}
+  h1{font-family:var(--sans);font-size:40px;line-height:1.18;margin:22px 0 14px;
+    letter-spacing:-.5px;font-weight:700;color:var(--ink);}
+  .lede{font-size:16.5px;color:var(--ink);max-width:500px;margin:0 auto;line-height:1.7;}
+
+  /* 标签筛选条 */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:4px 0 30px;}
+  .chip{font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;
+    color:var(--ink);background:#ffffff;border:1px solid var(--line);border-radius:999px;
+    padding:7px 15px;line-height:1;transition:color .15s ease,background .15s ease,border-color .15s ease;}
+  .chip .n{color:var(--muted);font-variant-numeric:tabular-nums;}
+  .chip:hover{border-color:var(--accent);color:var(--accent);}
+  .chip:hover .n{color:var(--accent);}
+  .chip.is-active{background:var(--accent);border-color:var(--accent);color:var(--paper);}
+  .chip.is-active .n{color:var(--paper);}
+  .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 
   /* List */
-  main{padding:24px 0 8px;}
-  .meta{display:flex;justify-content:space-between;align-items:baseline;
+  main{padding:0 0 8px;}
+  .meta{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--sans);
     font-size:13px;color:var(--muted);padding:0 4px 14px;border-bottom:1px solid var(--line);margin-bottom:20px;}
   .grid{display:grid;gap:14px;}
-  .item{display:block;text-decoration:none;color:inherit;background:var(--surface);
-    border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);
-    transition:transform .18s ease,border-color .18s ease;}
-  .item:hover{transform:translateY(-2px);border-color:var(--accent);}
+  .item{display:block;text-decoration:none;color:inherit;background:#ffffff;
+    border:1px solid var(--line);border-radius:16px;padding:22px 24px;
+    transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
+  .item:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 24px rgba(20,20,19,.05);}
   .item:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .item .top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-  .item .d{font-size:12px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;
-    background:var(--accent-soft);border-radius:6px;padding:3px 8px;}
-  .item .cat{font-size:12px;color:var(--muted);}
-  .item h2{font-size:18px;margin:0 0 6px;line-height:1.4;font-weight:600;}
-  .item p{font-size:14px;color:var(--muted);margin:0;}
-  .item .more{font-size:13px;color:var(--accent);font-weight:600;margin-top:12px;display:inline-block;}
+  .item .d{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .item .cat{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);
+    background:var(--line);border-radius:6px;padding:3px 9px;}
+  .item h2{font-family:var(--sans);font-size:18px;margin:0 0 6px;line-height:1.4;font-weight:600;color:var(--ink);}
+  .item p{font-family:var(--serif);font-size:14px;color:var(--ink);margin:0;line-height:1.65;}
+  .item .more{font-family:var(--sans);font-size:13px;color:var(--accent);font-weight:600;margin-top:12px;display:inline-block;}
+
+  /* 空态 */
+  .empty{text-align:center;color:var(--muted);font-family:var(--sans);font-size:14px;padding:48px 0;}
 
   /* Footer */
-  footer{text-align:center;padding:48px 0 64px;color:var(--muted);font-size:13px;}
+  footer{text-align:center;padding:48px 0 64px;color:var(--muted);font-size:13px;font-family:var(--sans);}
   footer a{color:var(--accent);text-decoration:none;}
+  footer strong{color:var(--ink);font-weight:600;}
 
   @media (max-width:480px){
-    header{padding:56px 0 28px;}
+    header{padding:56px 0 24px;}
     h1{font-size:30px;}
   }
 </style>
@@ -71,6 +93,8 @@
       <h1>Claude 每日技巧</h1>
       <p class="lede">每天一条可立即上手的小贴士，覆盖提示词、Cowork 功能、文档生成与自动化，写给把 Claude 用在日常工作里的产品经理。</p>
     </header>
+
+    <nav class="filters" id="filters" aria-label="按分类筛选"></nav>
 
     <main>
       <div class="meta">
@@ -135,5 +159,78 @@
       由定时任务 <strong>daily-claude-tip</strong> 自动维护 · 基于 Claude 生成
     </footer>
   </div>
+
+  <script>
+  (function(){
+    var grid = document.querySelector('.grid');
+    if(!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.item'));
+    var filters = document.getElementById('filters');
+    var countEl = document.getElementById('count');
+    var total = cards.length;
+
+    // 遍历卡片 .cat 动态去重 + 计数（按文档顺序，不硬编码分类）
+    var order = [], counts = {};
+    cards.forEach(function(card){
+      var el = card.querySelector('.cat');
+      var cat = el ? el.textContent.trim() : '';
+      if(!cat) return;
+      if(counts[cat] === undefined){ counts[cat] = 0; order.push(cat); }
+      counts[cat]++;
+    });
+
+    var chips = [];
+    function addChip(label, value, count){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.setAttribute('data-cat', value);
+      b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = label + ' <span class="n">(' + count + ')</span>';
+      filters.appendChild(b);
+      chips.push(b);
+    }
+    addChip('全部', '*', total);
+    order.forEach(function(cat){ addChip(cat, cat, counts[cat]); });
+
+    // 空态提示
+    var empty = document.createElement('p');
+    empty.className = 'empty';
+    empty.textContent = '该分类下暂无内容';
+    empty.hidden = true;
+    grid.parentNode.insertBefore(empty, grid.nextSibling);
+
+    function setActive(btn){
+      chips.forEach(function(c){
+        var on = c === btn;
+        c.classList.toggle('is-active', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    function apply(cat){
+      var shown = 0;
+      cards.forEach(function(card){
+        var el = card.querySelector('.cat');
+        var c = el ? el.textContent.trim() : '';
+        var match = (cat === '*') || (c === cat);
+        card.style.display = match ? '' : 'none';
+        if(match) shown++;
+      });
+      countEl.textContent = '共 ' + shown + ' 条';
+      empty.hidden = shown !== 0;
+    }
+
+    filters.addEventListener('click', function(e){
+      var btn = e.target.closest('.chip');
+      if(!btn) return;
+      setActive(btn);
+      apply(btn.getAttribute('data-cat'));
+    });
+
+    setActive(chips[0]);
+    apply('*');
+  })();
+  </script>
 </body>
 </html>

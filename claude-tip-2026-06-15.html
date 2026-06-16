@@ -4,22 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude 每日技巧 · 2026-06-15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;background:#f5f4f0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#2b2b29;line-height:1.7;}
-  .card{max-width:560px;margin:48px auto;background:#fff;border-radius:14px;padding:36px 40px;box-shadow:0 2px 20px rgba(0,0,0,.06);}
-  .date{font-size:13px;letter-spacing:.5px;color:#b0612e;font-weight:600;text-transform:uppercase;}
-  h1{font-size:22px;margin:8px 0 18px;line-height:1.35;}
-  p{font-size:15px;margin:0 0 16px;}
-  code{background:#efece6;border-radius:4px;padding:1px 5px;font-family:"SF Mono",Consolas,monospace;font-size:13px;}
-  .code{background:#2b2b29;color:#f3f1ec;border-radius:10px;padding:16px 18px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.6;position:relative;white-space:pre-wrap;}
-  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:#8a8a82;letter-spacing:.5px;}
-  .tip{font-size:13px;color:#6b6b63;margin-top:18px;}
-  .tip a{color:#b0612e;text-decoration:none;}
+  :root{
+    --ink:#141413; --paper:#faf9f5; --muted:#b0aea5; --line:#e8e6dc; --accent:#d97757;
+    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
+    --serif:'Lora',Georgia,'PingFang SC',serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+  .card{max-width:600px;margin:48px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 44px;}
+  .date{font-family:var(--sans);font-size:13px;letter-spacing:.3px;color:var(--muted);font-weight:500;}
+  .cat{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);background:var(--line);border-radius:6px;padding:3px 9px;margin:10px 0 0;}
+  h1{font-family:var(--sans);font-size:24px;margin:14px 0 20px;line-height:1.35;font-weight:600;color:var(--ink);letter-spacing:-.3px;}
+  p{font-size:15.5px;margin:0 0 16px;color:var(--ink);}
+  strong{font-weight:600;}
+  code{background:var(--line);border-radius:4px;padding:1px 6px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;color:var(--ink);}
+  .code{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px 20px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.65;position:relative;white-space:pre-wrap;margin:0 0 16px;}
+  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:var(--muted);letter-spacing:.5px;font-family:var(--sans);}
+  .tip{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7;}
+  .tip a{color:var(--accent);text-decoration:none;}
+  .tip a:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
   <div class="card">
     <div class="date">2026 年 6 月 15 日 · 周一</div>
+    <span class="cat">提示词技巧</span>
     <h1>让 Claude 先「采访你」，再动手写 PRD</h1>
     <p>直接说「帮我写个 PRD」，Claude 只能靠猜，输出往往泛泛。换个说法：让它在动笔前<strong>先反问你几个关键问题</strong>，等你答完再写。一句话就能把质量拉满。</p>
     <p>调研、需求评审、方案设计都适用——信息越完整，产出越贴合你的真实场景，返工更少。</p>

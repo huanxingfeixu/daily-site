@@ -4,22 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude 每日技巧 · 2026-06-11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;background:#f5f4f0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#2b2b29;line-height:1.7;}
-  .card{max-width:560px;margin:48px auto;background:#fff;border-radius:14px;padding:36px 40px;box-shadow:0 2px 20px rgba(0,0,0,.06);}
-  .date{font-size:13px;letter-spacing:.5px;color:#b0612e;font-weight:600;text-transform:uppercase;}
-  h1{font-size:22px;margin:8px 0 18px;line-height:1.35;}
-  p{font-size:15px;margin:0 0 16px;}
-  code{background:#efece6;border-radius:4px;padding:1px 5px;font-family:"SF Mono",Consolas,monospace;font-size:13px;}
-  .code{background:#2b2b29;color:#f3f1ec;border-radius:10px;padding:16px 18px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.6;position:relative;white-space:pre-wrap;}
-  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:#8a8a82;letter-spacing:.5px;}
-  .tip{font-size:13px;color:#6b6b63;margin-top:18px;}
-  .tip a{color:#b0612e;text-decoration:none;}
+  :root{
+    --ink:#141413; --paper:#faf9f5; --muted:#b0aea5; --line:#e8e6dc; --accent:#d97757;
+    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
+    --serif:'Lora',Georgia,'PingFang SC',serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+  .card{max-width:600px;margin:48px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 44px;}
+  .date{font-family:var(--sans);font-size:13px;letter-spacing:.3px;color:var(--muted);font-weight:500;}
+  .cat{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);background:var(--line);border-radius:6px;padding:3px 9px;margin:10px 0 0;}
+  h1{font-family:var(--sans);font-size:24px;margin:14px 0 20px;line-height:1.35;font-weight:600;color:var(--ink);letter-spacing:-.3px;}
+  p{font-size:15.5px;margin:0 0 16px;color:var(--ink);}
+  strong{font-weight:600;}
+  code{background:var(--line);border-radius:4px;padding:1px 6px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;color:var(--ink);}
+  .code{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px 20px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.65;position:relative;white-space:pre-wrap;margin:0 0 16px;}
+  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:var(--muted);letter-spacing:.5px;font-family:var(--sans);}
+  .tip{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7;}
+  .tip a{color:var(--accent);text-decoration:none;}
+  .tip a:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
   <div class="card">
     <div class="date">2026 年 6 月 11 日 · 周四</div>
+    <span class="cat">文档生成</span>
     <h1>让 Claude 直接生成「带公式、能用」的 Excel，而不是死表格</h1>
     <p>很多人让 Claude 出 Excel 时只拿到一张静态数据表。其实在 Cowork 里，Claude 会自动调用文档技能，生成<strong>带真实公式、条件格式、甚至图表和多 Sheet</strong> 的 <code>.xlsx</code>——下载就能直接编辑，改一个数全表联动。</p>
     <p>对 PM 很省事：算 RICE 优先级、做需求评分、拆季度指标时，把「要哪些列、怎么算、怎么排序」一次说清，让公式留在表里，后面你自己微调权重立刻看到新排名。</p>
