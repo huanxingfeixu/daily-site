@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 每日技巧 · 2026-06-18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141413; --paper:#faf9f5; --muted:#b0aea5; --line:#e8e6dc; --accent:#d97757;
+    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
+    --serif:'Lora',Georgia,'PingFang SC',serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+  .card{max-width:600px;margin:48px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 44px;}
+  .date{font-family:var(--sans);font-size:13px;letter-spacing:.3px;color:var(--muted);font-weight:500;}
+  .cat{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);background:var(--line);border-radius:6px;padding:3px 9px;margin:10px 0 0;}
+  h1{font-family:var(--sans);font-size:24px;margin:14px 0 20px;line-height:1.35;font-weight:600;color:var(--ink);letter-spacing:-.3px;}
+  p{font-size:15.5px;margin:0 0 16px;color:var(--ink);}
+  strong{font-weight:600;}
+  code{background:var(--line);border-radius:4px;padding:1px 6px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;color:var(--ink);}
+  .code{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px 20px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.65;position:relative;white-space:pre-wrap;margin:0 0 16px;}
+  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:var(--muted);letter-spacing:.5px;font-family:var(--sans);}
+  .tip{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7;}
+  .tip a{color:var(--accent);text-decoration:none;}
+  .tip a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="date">2026 年 6 月 18 日 · 周四</div>
+    <span class="cat">API</span>
+    <h1>给你的产品建一个 Claude「Project」，从此不用每次重讲背景</h1>
+    <p>每开一个新对话，都要把产品定位、术语、目标从头讲一遍？在 Claude 网页 / 桌面版建一个 <strong>Project（项目）</strong>，把背景一次性沉淀下来，省掉每次铺垫。</p>
+    <p>Project 是一个持久工作区：右侧<strong>「知识库」</strong>里传 PRD、调研、竞品笔记、术语表，项目下所有对话都会自动参考；<strong>「项目指令」</strong>里设定 Claude 的角色与风格。之后写需求、分析反馈、拟文案，开聊就自带上下文，不必反复粘贴。</p>
+    <div class="code"><span class="tag">项目指令 · 复制即用</span>你是我「____」产品的产品经理助理。
+背景：一句话定位，如"面向中小团队的协作工具"。
+请始终：
+- 沿用知识库术语表里的命名
+- 回答先给结论，再列依据
+- 涉及竞品 / 数据时标注来源
+- 中文、简洁，少堆 formatting</div>
+    <p class="tip">要点：<strong>项目指令</strong>与知识库 RAG 自动扩容（容量随内容放大约 10 倍）目前为付费版（Pro / Max / Team / Enterprise）功能。详见 <a href="https://support.claude.com/en/articles/9517075-what-are-projects">官方 Projects 说明</a>。</p>
+  </div>
+</body>
+</html>
