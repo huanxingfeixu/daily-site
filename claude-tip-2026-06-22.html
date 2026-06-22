@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 每日技巧 · 2026-06-22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141413; --paper:#faf9f5; --muted:#b0aea5; --line:#e8e6dc; --accent:#d97757;
+    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
+    --serif:'Lora',Georgia,'PingFang SC',serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+  .card{max-width:600px;margin:48px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 44px;}
+  .date{font-family:var(--sans);font-size:13px;letter-spacing:.3px;color:var(--muted);font-weight:500;}
+  .cat{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);background:var(--line);border-radius:6px;padding:3px 9px;margin:10px 0 0;}
+  h1{font-family:var(--sans);font-size:24px;margin:14px 0 20px;line-height:1.35;font-weight:600;color:var(--ink);letter-spacing:-.3px;}
+  p{font-size:15.5px;margin:0 0 16px;color:var(--ink);}
+  strong{font-weight:600;}
+  code{background:var(--line);border-radius:4px;padding:1px 6px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;color:var(--ink);}
+  .code{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px 20px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.65;position:relative;white-space:pre-wrap;margin:0 0 16px;}
+  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:var(--muted);letter-spacing:.5px;font-family:var(--sans);}
+  .tip{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7;}
+  .tip a{color:var(--accent);text-decoration:none;}
+  .tip a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="date">2026 年 6 月 22 日 · 周一</div>
+    <span class="cat">Cowork 功能</span>
+    <h1>给 Claude 连上一个文件夹，让它就地读写你的整摞资料</h1>
+    <p>在 Cowork 里，你可以把电脑上的某个文件夹「连接」给 Claude——之后它就能直接<strong>读取、写入</strong>这个文件夹里的文件，不用再一个个上传下载。出于安全，Claude 只能访问你连接过的文件夹；要删除文件，还得你点「允许」才放行。</p>
+    <p>对 PM 最实用的场景：把装满用户访谈记录、调研 PDF、导出数据的文件夹整个交给它，让它读完后提炼主题、整理成对比表；或者把一堆杂乱文件批量改名、归类。散落的素材不必再手动搬运。</p>
+    <div class="code"><span class="tag">提示词 · 复制即用</span>读取这个文件夹里所有用户访谈记录，提炼出现频率最高的
+6 个痛点，按出现次数从高到低排成一张表格，
+每个痛点各附一句原话引用。</div>
+    <p class="tip">产物会存回同一个文件夹，你能直接打开；Claude 也只在这个范围内活动。详见 <a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork">官方 Cowork 入门说明</a>。</p>
+  </div>
+</body>
+</html>

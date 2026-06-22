@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 每日技巧 · 2026-06-19</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141413; --paper:#faf9f5; --muted:#b0aea5; --line:#e8e6dc; --accent:#d97757;
+    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
+    --serif:'Lora',Georgia,'PingFang SC',serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+  .card{max-width:600px;margin:48px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 44px;}
+  .date{font-family:var(--sans);font-size:13px;letter-spacing:.3px;color:var(--muted);font-weight:500;}
+  .cat{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);background:var(--line);border-radius:6px;padding:3px 9px;margin:10px 0 0;}
+  h1{font-family:var(--sans);font-size:24px;margin:14px 0 20px;line-height:1.35;font-weight:600;color:var(--ink);letter-spacing:-.3px;}
+  p{font-size:15.5px;margin:0 0 16px;color:var(--ink);}
+  strong{font-weight:600;}
+  code{background:var(--line);border-radius:4px;padding:1px 6px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;color:var(--ink);}
+  .code{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px 20px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.65;position:relative;white-space:pre-wrap;margin:0 0 16px;}
+  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:var(--muted);letter-spacing:.5px;font-family:var(--sans);}
+  .tip{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7;}
+  .tip a{color:var(--accent);text-decoration:none;}
+  .tip a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="date">2026 年 6 月 19 日 · 周五</div>
+    <span class="cat">提示词技巧</span>
+    <h1>与其反复改格式，不如先甩给 Claude 三个范例</h1>
+    <p>一遍遍跟 Claude 解释「要这种结构、那种语气」，不如直接给它几个写好的范例——这叫 <strong>multishot（多范例）</strong>提示。给范例，是引导 Claude 输出格式、结构和语气最可靠的方式之一。</p>
+    <p>诀窍有三：范例放 <strong>3-5 个</strong>；<strong>覆盖不同情况</strong>（别都是同一类，否则它会学偏）；用 <code>&lt;example&gt;</code> 标签包起来，好让 Claude 把范例和指令分开。范例越贴近真实场景、越多样，产出越稳。</p>
+    <p>对 PM 来说，把以前写得好的用户故事、版本说明、反馈分类各挑几条当范例，之后批量产出就能自动对齐风格，省掉一轮轮返工。</p>
+    <div class="code"><span class="tag">提示词 · 复制即用</span>请把用户反馈改写成用户故事，严格照范例的格式和语气：
+
+&lt;examples&gt;
+&lt;example&gt;
+反馈：每次导出报表都要等很久。
+用户故事：作为重度报表用户，我希望导出在 3 秒内完成，
+这样不必中断手头工作干等。
+&lt;/example&gt;
+&lt;example&gt;
+反馈：找不到上周那个客户的沟通记录。
+用户故事：作为客户成功经理，我希望按客户和时间检索历史
+沟通，这样跟进时能快速翻到上下文。
+&lt;/example&gt;
+&lt;/examples&gt;
+
+现在改写这条：____</div>
+    <p class="tip">要点：范例放 3-5 个、覆盖不同情况、用 <code>&lt;example&gt;</code> 标签包好，效果最稳。详见 <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting">官方 multishot 说明</a>。</p>
+  </div>
+</body>
+</html>
