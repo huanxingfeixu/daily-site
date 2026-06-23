@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 每日技巧 · 2026-06-23</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141413; --paper:#faf9f5; --muted:#b0aea5; --line:#e8e6dc; --accent:#d97757;
+    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
+    --serif:'Lora',Georgia,'PingFang SC',serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+  .card{max-width:600px;margin:48px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 44px;}
+  .date{font-family:var(--sans);font-size:13px;letter-spacing:.3px;color:var(--muted);font-weight:500;}
+  .cat{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);background:var(--line);border-radius:6px;padding:3px 9px;margin:10px 0 0;}
+  h1{font-family:var(--sans);font-size:24px;margin:14px 0 20px;line-height:1.35;font-weight:600;color:var(--ink);letter-spacing:-.3px;}
+  p{font-size:15.5px;margin:0 0 16px;color:var(--ink);}
+  strong{font-weight:600;}
+  code{background:var(--line);border-radius:4px;padding:1px 6px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;color:var(--ink);}
+  .code{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px 20px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.65;position:relative;white-space:pre-wrap;margin:0 0 16px;}
+  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:var(--muted);letter-spacing:.5px;font-family:var(--sans);}
+  .tip{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7;}
+  .tip a{color:var(--accent);text-decoration:none;}
+  .tip a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="date">2026 年 6 月 23 日 · 周二</div>
+    <span class="cat">提示词技巧</span>
+    <h1>让 Claude 当「魔鬼代言人」，把方案的漏洞先挑出来</h1>
+    <p>评审前，Claude 默认会顺着你的思路走，不一定主动唱反调。只要给它一个明确的<strong>「挑刺者」角色</strong>，它就会反过来找你方案里站不住的假设、被忽略的边界情况，以及最可能被老板或用户问倒的地方。</p>
+    <p>对 PM 最实用：PRD 定稿前、策略汇报前，让它分别扮演怀疑的高管、挑剔的用户或竞品视角，把你会被追问的问题先问一遍——你提前补齐证据，真上场时就不慌。</p>
+    <div class="code"><span class="tag">提示词 · 复制即用</span>你现在是一位极度挑剔的评审，立场是唱反调。
+下面是我的 PRD，请只挑刺、先别夸：
+列出最致命的 5 个漏洞或风险，逐条说明
+为什么站不住、最可能在哪被推翻，
+并指出我该补哪些证据来反驳。
+[在此粘贴你的方案]</div>
+    <p class="tip">想让挑刺更狠，可指定具体角色（如「怀疑的 CFO」「正在流失的老用户」）。更多角色提示法见 <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview">Claude 提示工程文档</a>。</p>
+  </div>
+</body>
+</html>
