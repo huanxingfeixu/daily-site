@@ -1,0 +1,211 @@
+[
+  {
+    "date": "2026-06-25",
+    "weekday": "周四",
+    "category": "Codex 使用",
+    "title": "用 AGENTS.md 把项目规则写给 Codex，少来回解释",
+    "summary": "把测试命令、代码规范写进 AGENTS.md，Codex 每次进项目都会先读。",
+    "intro": [
+      "如果你每次都要重新告诉 Codex「这个项目怎么启动、怎么测试、哪里不能乱改」，可以把这些规则沉淀到仓库里的 <strong>AGENTS.md</strong>。Codex 进入项目后会读取它，把里面的命令、规范和注意事项当作长期上下文。",
+      "对 PM 和团队协作很实用：把验收方式、截图要求、发布前检查、术语口径写进去，之后让 Codex 改页面、跑测试、做 review 时，就不必在每个新对话里重新铺垫。"
+    ],
+    "prompt": "请帮我在当前仓库根目录创建或更新 AGENTS.md：\n- 写清项目启动、测试、lint 命令\n- 写清代码风格和提交前检查\n- 标注哪些目录有特殊规则\n更新前先读取现有 README/package.json，并保持说明简洁。",
+    "promptLabel": "复制即用",
+    "note": "要点：适合写稳定规则，不适合塞一次性需求；一次性目标还是直接放在当前对话里。参考 <a href=\"https://developers.openai.com/codex/guides/agents-md\" target=\"_blank\" rel=\"noopener\">OpenAI Codex 的 AGENTS.md 说明</a>。",
+    "permalink": "codex-tip-2026-06-25.html",
+    "bird": "corvus-corax"
+  },
+  {
+    "date": "2026-06-23",
+    "weekday": "周二",
+    "category": "提示词技巧",
+    "title": "让 Claude 当「魔鬼代言人」，把方案的漏洞先挑出来",
+    "summary": "给它一个挑刺者角色，方案上线前先把会被问倒的漏洞揪出来。",
+    "intro": [
+      "评审前，Claude 默认会顺着你的思路走，不一定主动唱反调。只要给它一个明确的<strong>「挑刺者」角色</strong>，它就会反过来找你方案里站不住的假设、被忽略的边界情况，以及最可能被老板或用户问倒的地方。",
+      "对 PM 最实用：PRD 定稿前、策略汇报前，让它分别扮演怀疑的高管、挑剔的用户或竞品视角，把你会被追问的问题先问一遍——你提前补齐证据，真上场时就不慌。"
+    ],
+    "prompt": "你现在是一位极度挑剔的评审，立场是唱反调。\n下面是我的 PRD，请只挑刺、先别夸：\n列出最致命的 5 个漏洞或风险，逐条说明\n为什么站不住、最可能在哪被推翻，\n并指出我该补哪些证据来反驳。\n[在此粘贴你的方案]",
+    "promptLabel": "提示词 · 复制即用",
+    "note": "想让挑刺更狠，可指定具体角色（如「怀疑的 CFO」「正在流失的老用户」）。更多角色提示法见 <a href=\"https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview\" target=\"_blank\" rel=\"noopener\">Claude 提示工程文档</a>。",
+    "permalink": "claude-tip-2026-06-23.html",
+    "bird": "piranga-rubra"
+  },
+  {
+    "date": "2026-06-22",
+    "weekday": "周一",
+    "category": "Cowork 功能",
+    "title": "给 Claude 连上一个文件夹，让它就地读写你的整摞资料",
+    "summary": "连上一个文件夹，Claude 就能就地读写、提炼、整理里面的文件，省去逐个上传。",
+    "intro": [
+      "在 Cowork 里，你可以把电脑上的某个文件夹「连接」给 Claude——之后它就能直接<strong>读取、写入</strong>这个文件夹里的文件，不用再一个个上传下载。出于安全，Claude 只能访问你连接过的文件夹；要删除文件，还得你点「允许」才放行。",
+      "对 PM 最实用的场景：把装满用户访谈记录、调研 PDF、导出数据的文件夹整个交给它，让它读完后提炼主题、整理成对比表；或者把一堆杂乱文件批量改名、归类。散落的素材不必再手动搬运。"
+    ],
+    "prompt": "读取这个文件夹里所有用户访谈记录，提炼出现频率最高的\n6 个痛点，按出现次数从高到低排成一张表格，\n每个痛点各附一句原话引用。",
+    "promptLabel": "提示词 · 复制即用",
+    "note": "产物会存回同一个文件夹，你能直接打开；Claude 也只在这个范围内活动。详见 <a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\" target=\"_blank\" rel=\"noopener\">官方 Cowork 入门说明</a>。",
+    "permalink": "claude-tip-2026-06-22.html",
+    "bird": "passerina-cyanea"
+  },
+  {
+    "date": "2026-06-19",
+    "weekday": "周五",
+    "category": "提示词技巧",
+    "title": "与其反复改格式，不如先甩给 Claude 三个范例",
+    "summary": "贴 3 个写好的范例，Claude 就照着你的结构和语气产出，不用反复纠格式。",
+    "intro": [
+      "一遍遍跟 Claude 解释「要这种结构、那种语气」，不如直接给它几个写好的范例——这叫 <strong>multishot（多范例）</strong>提示。给范例，是引导 Claude 输出格式、结构和语气最可靠的方式之一。",
+      "诀窍有三：范例放 <strong>3-5 个</strong>；<strong>覆盖不同情况</strong>（别都是同一类，否则它会学偏）；用 <code>&lt;example&gt;</code> 标签包起来，好让 Claude 把范例和指令分开。范例越贴近真实场景、越多样，产出越稳。",
+      "对 PM 来说，把以前写得好的用户故事、版本说明、反馈分类各挑几条当范例，之后批量产出就能自动对齐风格，省掉一轮轮返工。"
+    ],
+    "prompt": "请把用户反馈改写成用户故事，严格照范例的格式和语气：\n\n<examples>\n<example>\n反馈：每次导出报表都要等很久。\n用户故事：作为重度报表用户，我希望导出在 3 秒内完成，\n这样不必中断手头工作干等。\n</example>\n<example>\n反馈：找不到上周那个客户的沟通记录。\n用户故事：作为客户成功经理，我希望按客户和时间检索历史\n沟通，这样跟进时能快速翻到上下文。\n</example>\n</examples>\n\n现在改写这条：____",
+    "promptLabel": "提示词 · 复制即用",
+    "note": "要点：范例放 3-5 个、覆盖不同情况、用 <code>&lt;example&gt;</code> 标签包好，效果最稳。详见 <a href=\"https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting\" target=\"_blank\" rel=\"noopener\">官方 multishot 说明</a>。",
+    "permalink": "claude-tip-2026-06-19.html",
+    "bird": "icterus-bullockii"
+  },
+  {
+    "date": "2026-06-18",
+    "weekday": "周四",
+    "category": "API",
+    "title": "给你的产品建一个 Claude「Project」，从此不用每次重讲背景",
+    "summary": "知识库传文档、项目指令设角色，项目里每个对话都自带上下文，不用反复粘贴。",
+    "intro": [
+      "每开一个新对话，都要把产品定位、术语、目标从头讲一遍？在 Claude 网页 / 桌面版建一个 <strong>Project（项目）</strong>，把背景一次性沉淀下来，省掉每次铺垫。",
+      "Project 是一个持久工作区：右侧<strong>「知识库」</strong>里传 PRD、调研、竞品笔记、术语表，项目下所有对话都会自动参考；<strong>「项目指令」</strong>里设定 Claude 的角色与风格。之后写需求、分析反馈、拟文案，开聊就自带上下文，不必反复粘贴。"
+    ],
+    "prompt": "你是我「____」产品的产品经理助理。\n背景：一句话定位，如\"面向中小团队的协作工具\"。\n请始终：\n- 沿用知识库术语表里的命名\n- 回答先给结论，再列依据\n- 涉及竞品 / 数据时标注来源\n- 中文、简洁，少堆 formatting",
+    "promptLabel": "项目指令 · 复制即用",
+    "note": "要点：<strong>项目指令</strong>与知识库 RAG 自动扩容（容量随内容放大约 10 倍）目前为付费版（Pro / Max / Team / Enterprise）功能。详见 <a href=\"https://support.claude.com/en/articles/9517075-what-are-projects\" target=\"_blank\" rel=\"noopener\">官方 Projects 说明</a>。",
+    "permalink": "claude-tip-2026-06-18.html",
+    "bird": "bombycilla-cedrorum"
+  },
+  {
+    "date": "2026-06-17",
+    "weekday": "周三",
+    "category": "文档生成",
+    "title": "让 Claude 把 PRD / 调研结论一键做成汇报 PPT",
+    "summary": "说清给谁看、要几页、什么风格，它就按汇报逻辑分好页，拼出能直接用的 .pptx。",
+    "intro": [
+      "调研做完、PRD 写完，最后还要花一晚上往幻灯片里搬？把文档或结论直接丢给 Claude，它会先写好每页要点，再跑代码拼出真正的 <code>.pptx</code>，在 Cowork 里直接存进你的文件夹。",
+      "关键是说清三件事：<strong>给谁看、要几页、什么风格</strong>。它就会按汇报逻辑自动分页——背景、问题、方案、指标、排期，省掉从零搭框架那一步。"
+    ],
+    "prompt": "把这份 PRD 做成一份 10 页的需求评审 PPT，\n受众是研发和设计负责人。\n分页：背景 → 要解决的问题 → 方案概览 →\n关键流程 → 成功指标 → 排期与分工。\n风格简洁专业，每页不超过 6 行要点，\n重点数字用大字突出。",
+    "promptLabel": "复制即用",
+    "note": "要点：在 Cowork 里直接生成并存盘；网页 / 桌面版聊天需先到 <strong>设置 → Capabilities</strong> 打开文件创建。想套公司版式？把一份现成 <code>.pptx</code> 当模板一起发给它即可。详见 <a href=\"https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude\" target=\"_blank\" rel=\"noopener\">官方文件创建说明</a>。",
+    "permalink": "claude-tip-2026-06-17.html",
+    "bird": "icterus-galbula"
+  },
+  {
+    "date": "2026-06-16",
+    "weekday": "周二",
+    "category": "Cowork 功能",
+    "title": "给 Claude 接上连接器，让它直接读你的 Asana / Notion",
+    "summary": "在设置里启用连接器，Claude 就能直接读写你的任务、文档和消息，省去复制粘贴。",
+    "intro": [
+      "还在把任务、文档一段段复制粘贴给 Claude？其实在<strong>设置 → 连接器 → 浏览连接器</strong>里点一下、完成授权，它就能直接读取、甚至帮你更新 Asana、Notion、Slack 里的内容。聊天框左下角「+」也能随时管理。",
+      "接上之后，写周报、梳理需求、汇总 Slack 讨论，都能用一句大白话让 Claude 自己去取数，省掉来回搬运。"
+    ],
+    "prompt": "把我在 Asana 上负责、本周到期的任务拉出来，\n按优先级排成一张表，标出阻塞项，\n再帮我写成一段发给团队的周报。",
+    "promptLabel": "复制即用",
+    "note": "要点：授权范围可随时在设置里收回；只读权限就够日常取数，要 Claude 帮你改任务 / 写文档时再开写入。详见 <a href=\"https://support.claude.com/en/articles/13123742-intro-to-connectors\" target=\"_blank\" rel=\"noopener\">官方连接器入门</a>。",
+    "permalink": "claude-tip-2026-06-16.html",
+    "bird": "cyanocitta-stelleri"
+  },
+  {
+    "date": "2026-06-15",
+    "weekday": "周一",
+    "category": "提示词技巧",
+    "title": "让 Claude 先「采访你」，再动手写 PRD",
+    "summary": "动笔前让它先反问几个关键问题，答完再写，PRD 质量立刻拉满。",
+    "intro": [
+      "直接说「帮我写个 PRD」，Claude 只能靠猜，输出往往泛泛。换个说法：让它在动笔前<strong>先反问你几个关键问题</strong>，等你答完再写。一句话就能把质量拉满。",
+      "调研、需求评审、方案设计都适用——信息越完整，产出越贴合你的真实场景，返工更少。"
+    ],
+    "prompt": "写之前先别动手。\n请以资深产品经理的视角，一次性问我 5 个最关键的澄清问题\n（目标用户、核心场景、成功指标、边界 / 非目标、约束条件）。\n我回答后，你再输出完整 PRD。",
+    "promptLabel": "复制即用",
+    "note": "要点：把「先问后写」写进提示词，是 Anthropic 官方推崇的清晰指令实践；一次批量提问比逐条来回更省事。注意：定时 / 自动任务里 Claude 无法反问，那类场景要把要求一次写全。详见 <a href=\"https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices\" target=\"_blank\" rel=\"noopener\">官方提示工程指南</a>。",
+    "permalink": "claude-tip-2026-06-15.html",
+    "bird": "piranga-ludoviciana"
+  },
+  {
+    "date": "2026-06-12",
+    "weekday": "周五",
+    "category": "Cowork 功能",
+    "title": "用「/schedule」定时任务，让竞品监控每周一自动送上门",
+    "summary": "把竞品监控写成一条 /schedule 指令，每周一自动生成带来源链接的动态简报。",
+    "intro": [
+      "在 Cowork 对话框输入 <code>/schedule</code>，把一段提示词存成定时任务，Claude 就会按你选的频率（每小时 / 每天 / 每周 / 工作日 / 手动）自动跑，还能调用你已连接的工具和文件夹。",
+      "对 PM 最划算的用法是竞品监控：写一次指令，以后每周一早上自动收到一份带来源链接的动态简报，不用再手动盯。"
+    ],
+    "prompt": "/schedule 每周一上午 9 点运行：\n搜索过去一周 [竞品A]、[竞品B] 的产品动态\n（新功能、定价调整、融资、官方博客/更新日志），\n按对我们的影响程度排序，每条附来源链接，\n生成一页 HTML 简报，存到我的工作文件夹。",
+    "promptLabel": "复制即用",
+    "note": "要点：定时任务只在电脑唤醒且桌面端打开时运行，错过会在下次打开时自动补跑；点左侧栏「Scheduled」可随时暂停、改频率或手动触发。详见 <a href=\"https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork\" target=\"_blank\" rel=\"noopener\">官方说明</a>。",
+    "permalink": "claude-tip-2026-06-12.html",
+    "bird": "sialia-currucoides"
+  },
+  {
+    "date": "2026-06-11",
+    "weekday": "周四",
+    "category": "文档生成",
+    "title": "让 Claude 直接生成「带公式、能用」的 Excel，而不是死表格",
+    "summary": "说清「用公式别写死」，就能拿到改一个数全表联动的 .xlsx，做 RICE 优先级、需求评分都顺手。",
+    "intro": [
+      "很多人让 Claude 出 Excel 时只拿到一张静态数据表。其实在 Cowork 里，Claude 会自动调用文档技能，生成<strong>带真实公式、条件格式、甚至图表和多 Sheet</strong> 的 <code>.xlsx</code>——下载就能直接编辑，改一个数全表联动。",
+      "对 PM 很省事：算 RICE 优先级、做需求评分、拆季度指标时，把「要哪些列、怎么算、怎么排序」一次说清，让公式留在表里，后面你自己微调权重立刻看到新排名。"
+    ],
+    "prompt": "帮我生成一个需求优先级 Excel（.xlsx）：\n列：需求名 / Reach / Impact / Confidence / Effort / RICE 分数\n- RICE 分数列用公式 =Reach*Impact*Confidence/Effort，别写死数字\n- 按 RICE 分数降序排序，分数列加色阶条件格式\n- 顶部冻结表头\n先放 5 行示例数据，方便我替换。",
+    "promptLabel": "复制即用",
+    "note": "要点：明确说「用公式，别写死」，Claude 才会保留可计算单元格；同理可让它做带 VLOOKUP 的对照表或多 Sheet 的指标看板。参考 <a href=\"https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude\" target=\"_blank\" rel=\"noopener\">Claude 文件创建说明</a>。",
+    "permalink": "claude-tip-2026-06-11.html",
+    "bird": "spinus-tristis"
+  },
+  {
+    "date": "2026-06-10",
+    "weekday": "周三",
+    "category": "提示词技巧",
+    "title": "用 XML 标签把提示词拆成「积木」，输出更稳更准",
+    "summary": "把背景、要求、示例分别用标签包起来，Claude 解析更准，输出更稳、更贴合格式。",
+    "intro": [
+      "当一条提示同时塞了背景、要求和示例时，Claude 容易把它们混在一起。官方建议用 <strong>XML 标签</strong>把每一块包起来——<code>&lt;context&gt;</code> 放背景、<code>&lt;instructions&gt;</code> 放要求、<code>&lt;example&gt;</code> 放范例。Claude 解析时一眼就能分清谁是谁，输出明显更稳、更贴合你要的格式。",
+      "对 PM 尤其好用：写 PRD、整理调研、生成竞品表时，把「参考资料」和「你要做什么」分开标注，就不会出现 Claude 把示例当正文照抄的情况。"
+    ],
+    "prompt": "<context>\n我们做一款面向中小私募的 AI 投研工具，下面是 3 条用户访谈摘录……\n</context>\n\n<instructions>\n读完 context，提炼 3 个最高频痛点，每个配一句原话佐证，输出为表格。\n</instructions>\n\n<example>\n痛点 | 佐证原话\n盯盘耗时 | 「每天开盘前要手动翻 20 只票」\n</example>",
+    "promptLabel": "复制即用",
+    "note": "小诀窍：标签名自己起、保持前后一致即可，没有固定写法；多个范例用 <code>&lt;examples&gt;</code> 包住，配 3–5 个效果最好。参考 <a href=\"https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags\" target=\"_blank\" rel=\"noopener\">Anthropic 官方提示词文档</a>。",
+    "permalink": "claude-tip-2026-06-10.html",
+    "bird": "calypte-anna"
+  },
+  {
+    "date": "2026-06-09",
+    "weekday": "周二",
+    "category": "Cowork 功能",
+    "title": "把一次性回答变成「实时 Artifact 看板」",
+    "summary": "让 Claude 把反复查看、随时间变化的数据固化成一个独立页面，每次打开自动拉取最新进度，刷新不耗 token。",
+    "intro": [
+      "在 Cowork 里，凡是会反复看、且数据随时间变化的内容（指标周报、需求池、上线追踪），别让 Claude 用聊天表格回一次就完。让它生成一个 <strong>Live Artifact</strong>——一个独立 HTML 页面，每次打开都会自动从你连接的应用（Slack、数据库、表格等）拉取最新数据，无需重新提问、刷新不耗 token。",
+      "做法很简单：先正常让 Claude 查一次数据，拿到结果后直接说下面这句，它就会把结果固化成可复用的页面。"
+    ],
+    "prompt": "把刚才这份数据做成一个我能随时重新打开的 Live Artifact，\n每天早上我点开就能看到最新进度。",
+    "promptLabel": "复制即用",
+    "note": "适用场景：每周指标看板、需求/Bug 追踪、招聘漏斗、团队动态摘要。生成后它会常驻独立标签页，右上角有刷新按钮可强制取新数据。",
+    "permalink": "claude-tip-2026-06-09.html",
+    "bird": "sialia-mexicana"
+  },
+  {
+    "date": "2026-06-08",
+    "weekday": "周一",
+    "category": "Cowork 功能",
+    "title": "用 Skills 把“写 PRD”变成一键流程",
+    "summary": "调用 write-spec 技能，从一句话需求生成结构化 PRD，自动补齐目标、非目标、成功指标与验收标准。",
+    "intro": [
+      "Cowork 的 Skills 是可复用的任务说明书，把你的专业流程固化下来、相关时自动加载。在侧边栏输入 <strong>/</strong> 就能看到全部技能并选用，或直接用自然语言描述任务，Claude 会自动判断该用哪个。",
+      "你已装有 product-management 插件。想从一句话需求生成结构化 PRD，调用 write-spec 技能即可，它会自动补齐目标、非目标、成功指标和验收标准，比从空白文档起步快得多。"
+    ],
+    "prompt": "/write-spec 把“用户希望批量导出报表”写成 PRD，包含问题背景、目标与非目标、用户故事、成功指标和验收标准，并分 P0/P1 标注优先级",
+    "promptLabel": "复制即用",
+    "note": "想固化自己的流程？在 Customize &gt; Skills 用 Skill Creator 创建专属技能，可随时开关、也能分享给团队。",
+    "permalink": "claude-tip-2026-06-08.html",
+    "bird": "passerina-amoena"
+  }
+]

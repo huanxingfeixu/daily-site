@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>把一次性回答变成「实时 Artifact 看板」 · Claude / Codex 每日技巧</title>
-<meta name="description" content="让 Claude 把反复查看、随时间变化的数据固化成一个独立页面，每次打开自动拉取最新进度，刷新不耗 token。">
-<meta name="theme-color" content="#3E7B8C">
+<title>用 AGENTS.md 把项目规则写给 Codex，少来回解释 · Claude / Codex 每日技巧</title>
+<meta name="description" content="把测试命令、代码规范写进 AGENTS.md，Codex 每次进项目都会先读。">
+<meta name="theme-color" content="#4F6F52">
 <style>
 :root{
   --paper:#FBF8F3; --card:#FFFFFF; --ink:#2B2724; --ink2:#6E665C; --ink3:#9A9085;
@@ -58,19 +58,22 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:2px;}
 @media (max-width:640px){ .pad{padding:24px 22px 28px;} h1{font-size:22px;} }
 </style>
 </head>
-<body style="--cat:#3E7B8C;--product:#C75D43">
+<body style="--cat:#4F6F52;--product:#4F6F52">
   <div class="wrap">
     <a class="back" href="index.html">&larr; 全部技巧</a>
     <article class="card">
-      <div class="illo"><img src="img/birds/sialia-mexicana.png" alt="" loading="eager"></div>
+      <div class="illo"><img src="img/birds/corvus-corax.png" alt="" loading="eager"></div>
       <div class="pad">
-        <div class="meta"><span class="eyebrow mono">06 / 09 · 周二</span><span class="product-pill">Claude</span><span class="tag">Cowork 功能</span></div>
-        <h1>把一次性回答变成「实时 Artifact 看板」</h1>
-        <p>在 Cowork 里，凡是会反复看、且数据随时间变化的内容（指标周报、需求池、上线追踪），别让 Claude 用聊天表格回一次就完。让它生成一个 <strong>Live Artifact</strong>——一个独立 HTML 页面，每次打开都会自动从你连接的应用（Slack、数据库、表格等）拉取最新数据，无需重新提问、刷新不耗 token。</p>
-    <p>做法很简单：先正常让 Claude 查一次数据，拿到结果后直接说下面这句，它就会把结果固化成可复用的页面。</p>
-        <div class="prompt"><div class="prompt-head"><span class="prompt-label mono">复制即用</span><button type="button" class="copy-btn" id="copy">复制</button></div><pre id="prompt">把刚才这份数据做成一个我能随时重新打开的 Live Artifact，
-每天早上我点开就能看到最新进度。</pre></div>
-        <div class="note">适用场景：每周指标看板、需求/Bug 追踪、招聘漏斗、团队动态摘要。生成后它会常驻独立标签页，右上角有刷新按钮可强制取新数据。</div>
+        <div class="meta"><span class="eyebrow mono">06 / 25 · 周四</span><span class="product-pill">Codex</span><span class="tag">Codex 使用</span></div>
+        <h1>用 AGENTS.md 把项目规则写给 Codex，少来回解释</h1>
+        <p>如果你每次都要重新告诉 Codex「这个项目怎么启动、怎么测试、哪里不能乱改」，可以把这些规则沉淀到仓库里的 <strong>AGENTS.md</strong>。Codex 进入项目后会读取它，把里面的命令、规范和注意事项当作长期上下文。</p>
+    <p>对 PM 和团队协作很实用：把验收方式、截图要求、发布前检查、术语口径写进去，之后让 Codex 改页面、跑测试、做 review 时，就不必在每个新对话里重新铺垫。</p>
+        <div class="prompt"><div class="prompt-head"><span class="prompt-label mono">复制即用</span><button type="button" class="copy-btn" id="copy">复制</button></div><pre id="prompt">请帮我在当前仓库根目录创建或更新 AGENTS.md：
+- 写清项目启动、测试、lint 命令
+- 写清代码风格和提交前检查
+- 标注哪些目录有特殊规则
+更新前先读取现有 README/package.json，并保持说明简洁。</pre></div>
+        <div class="note">要点：适合写稳定规则，不适合塞一次性需求；一次性目标还是直接放在当前对话里。参考 <a href="https://developers.openai.com/codex/guides/agents-md" target="_blank" rel="noopener">OpenAI Codex 的 AGENTS.md 说明</a>。</div>
       </div>
     </article>
     <footer>

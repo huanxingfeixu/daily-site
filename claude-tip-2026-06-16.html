@@ -3,43 +3,93 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude 每日技巧 · 2026-06-16</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<title>给 Claude 接上连接器，让它直接读你的 Asana / Notion · Claude / Codex 每日技巧</title>
+<meta name="description" content="在设置里启用连接器，Claude 就能直接读写你的任务、文档和消息，省去复制粘贴。">
+<meta name="theme-color" content="#3E7B8C">
 <style>
-  :root{
-    --ink:#141413; --paper:#faf9f5; --muted:#b0aea5; --line:#e8e6dc; --accent:#d97757;
-    --sans:'Poppins',-apple-system,'PingFang SC',Arial,sans-serif;
-    --serif:'Lora',Georgia,'PingFang SC',serif;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.8;font-family:var(--serif);-webkit-font-smoothing:antialiased;}
-  .card{max-width:600px;margin:48px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px 44px;}
-  .date{font-family:var(--sans);font-size:13px;letter-spacing:.3px;color:var(--muted);font-weight:500;}
-  .cat{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--accent);background:var(--line);border-radius:6px;padding:3px 9px;margin:10px 0 0;}
-  h1{font-family:var(--sans);font-size:24px;margin:14px 0 20px;line-height:1.35;font-weight:600;color:var(--ink);letter-spacing:-.3px;}
-  p{font-size:15.5px;margin:0 0 16px;color:var(--ink);}
-  strong{font-weight:600;}
-  code{background:var(--line);border-radius:4px;padding:1px 6px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;color:var(--ink);}
-  .code{background:var(--ink);color:var(--paper);border-radius:12px;padding:18px 20px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.65;position:relative;white-space:pre-wrap;margin:0 0 16px;}
-  .code .tag{position:absolute;top:10px;right:14px;font-size:11px;color:var(--muted);letter-spacing:.5px;font-family:var(--sans);}
-  .tip{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7;}
-  .tip a{color:var(--accent);text-decoration:none;}
-  .tip a:hover{text-decoration:underline;}
+:root{
+  --paper:#FBF8F3; --card:#FFFFFF; --ink:#2B2724; --ink2:#6E665C; --ink3:#9A9085;
+  --line:#E9E1D4; --illo1:#FCF8EF; --illo2:#F2E9D7; --cat:#8A7E70;
+  --r:20px; --ease:cubic-bezier(.2,.7,.2,1);
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Source Han Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","PingFang SC",monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);}
+img{display:block;max-width:100%;}
+.illo{position:relative;background:linear-gradient(160deg,var(--illo1),var(--illo2));overflow:hidden;}
+.illo img{width:100%;height:100%;object-fit:contain;object-position:center;
+  filter:drop-shadow(0 10px 18px rgba(43,39,36,.10));mix-blend-mode:multiply;}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--cat);
+  font-family:var(--sans);letter-spacing:.01em;white-space:nowrap;}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cat);flex:0 0 auto;}
+.prompt{background:var(--ink);color:var(--paper);border-radius:14px;padding:14px 16px 16px;margin:18px 0;}
+.prompt-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:12px;}
+.prompt-label{color:#C9C1B4;}
+.prompt pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--mono);
+  font-size:13px;line-height:1.65;color:var(--paper);}
+.copy-btn{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--paper);background:rgba(251,248,243,.12);border:1px solid rgba(251,248,243,.28);
+  border-radius:999px;padding:5px 12px;cursor:pointer;transition:background .2s var(--ease);}
+.copy-btn:hover{background:rgba(251,248,243,.22);}
+.copy-btn.done{background:var(--cat);border-color:var(--cat);}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}
+
+.wrap{max-width:640px;margin:0 auto;padding:0 22px;}
+.back{display:inline-flex;align-items:center;gap:6px;margin:26px 0 0;font-size:13px;color:var(--ink2);text-decoration:none;}
+.back:hover{color:var(--ink);}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:18px 0 26px;}
+.card .illo{aspect-ratio:16/10;}
+.pad{padding:30px 34px 34px;}
+.meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.meta .eyebrow{color:var(--ink3);}
+.product-pill{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--product);
+  border:1px solid color-mix(in srgb,var(--product) 42%,transparent);border-radius:999px;padding:1px 7px;line-height:1.6;background:#fff;}
+h1{font-size:25px;line-height:1.3;margin:6px 0 18px;font-weight:700;letter-spacing:-.01em;}
+p{font-size:15.5px;margin:0 0 15px;color:var(--ink);}
+code{font-family:var(--mono);font-size:.92em;background:var(--line);border-radius:5px;padding:1px 6px;}
+.note{font-size:13px;color:var(--ink2);line-height:1.75;border-top:1px solid var(--line);padding-top:14px;margin-top:18px;}
+.note a{color:var(--cat);text-decoration:underline;text-underline-offset:2px;}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:24px 0 56px;color:var(--ink3);font-size:12px;line-height:1.8;}
+footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:2px;}
+@media (max-width:640px){ .pad{padding:24px 22px 28px;} h1{font-size:22px;} }
 </style>
 </head>
-<body>
-  <div class="card">
-    <div class="date">2026 年 6 月 16 日 · 周二</div>
-    <span class="cat">Cowork 功能</span>
-    <h1>给 Claude 接上连接器，让它直接读你的 Asana / Notion</h1>
-    <p>还在把任务、文档一段段复制粘贴给 Claude？其实在<strong>设置 → 连接器 → 浏览连接器</strong>里点一下、完成授权，它就能直接读取、甚至帮你更新 Asana、Notion、Slack 里的内容。聊天框左下角「+」也能随时管理。</p>
+<body style="--cat:#3E7B8C;--product:#C75D43">
+  <div class="wrap">
+    <a class="back" href="index.html">&larr; 全部技巧</a>
+    <article class="card">
+      <div class="illo"><img src="img/birds/cyanocitta-stelleri.png" alt="" loading="eager"></div>
+      <div class="pad">
+        <div class="meta"><span class="eyebrow mono">06 / 16 · 周二</span><span class="product-pill">Claude</span><span class="tag">Cowork 功能</span></div>
+        <h1>给 Claude 接上连接器，让它直接读你的 Asana / Notion</h1>
+        <p>还在把任务、文档一段段复制粘贴给 Claude？其实在<strong>设置 → 连接器 → 浏览连接器</strong>里点一下、完成授权，它就能直接读取、甚至帮你更新 Asana、Notion、Slack 里的内容。聊天框左下角「+」也能随时管理。</p>
     <p>接上之后，写周报、梳理需求、汇总 Slack 讨论，都能用一句大白话让 Claude 自己去取数，省掉来回搬运。</p>
-    <div class="code"><span class="tag">复制即用</span>把我在 Asana 上负责、本周到期的任务拉出来，
+        <div class="prompt"><div class="prompt-head"><span class="prompt-label mono">复制即用</span><button type="button" class="copy-btn" id="copy">复制</button></div><pre id="prompt">把我在 Asana 上负责、本周到期的任务拉出来，
 按优先级排成一张表，标出阻塞项，
-再帮我写成一段发给团队的周报。</div>
-    <p class="tip">要点：授权范围可随时在设置里收回；只读权限就够日常取数，要 Claude 帮你改任务 / 写文档时再开写入。详见 <a href="https://support.claude.com/en/articles/13123742-intro-to-connectors">官方连接器入门</a>。</p>
+再帮我写成一段发给团队的周报。</pre></div>
+        <div class="note">要点：授权范围可随时在设置里收回；只读权限就够日常取数，要 Claude 帮你改任务 / 写文档时再开写入。详见 <a href="https://support.claude.com/en/articles/13123742-intro-to-connectors" target="_blank" rel="noopener">官方连接器入门</a>。</div>
+      </div>
+    </article>
+    <footer>
+      <p>由定时任务 <strong>daily-codex-tip</strong> 自动维护 · 基于 Claude / Codex 生成</p>
+      <p>鸟类插画 © Teddy Warner，源自 <a href="https://bird.onethreenine.net/" target="_blank" rel="noopener">apartment birds</a>（<a href="https://github.com/Twarner491/AvianVisitors" target="_blank" rel="noopener">AvianVisitors</a>），依 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 授权使用（已缩放、压缩）。本站为个人非商业作品，相同方式共享。</p>
+    </footer>
   </div>
+  <script>
+  (function(){
+    var b=document.getElementById('copy'),p=document.getElementById('prompt');
+    if(!b||!p)return;
+    b.addEventListener('click',function(){
+      var txt=p.textContent;
+      function ok(){b.textContent='已复制';b.classList.add('done');setTimeout(function(){b.textContent='复制';b.classList.remove('done');},1500);}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fallback);}else{fallback();}
+      function fallback(){try{var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);ok();}catch(e){}}
+    });
+  })();
+  </script>
 </body>
 </html>
